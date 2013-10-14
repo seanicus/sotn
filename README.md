@@ -1,0 +1,4 @@
+sotn
+====
+
+Explore Africa as "@"
