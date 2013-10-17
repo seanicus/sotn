@@ -28,6 +28,7 @@ var Game =  {
         bindEventToScreen('keydown');
         bindEventToScreen('keyup');
         bindEventToScreen('keypress');
+
     },
     getDisplay: function() {
         return this._display;

@@ -30,6 +30,16 @@ Game.Screen.startScreen = {
 Game.Screen.playScreen = {
     enter: function() {
         console.log("Entered play screen.");
+
+//        //var rdr = Game.MapManager;
+//        var map_store = Game.MapManager.get('africa').then(function(){
+//
+//
+//
+//        }.bind(this));
+
+        var str = Game.Africa.map();
+
         var map = [];
         for(var x = 0; x < 80; x++){
             map.push([]);
@@ -44,13 +54,14 @@ Game.Screen.playScreen = {
             generator.create();
         }
         generator.create(function(x,y,v) {
-           if(v===1){
-               map[x][y] = Game.Tile.floorTile;
-           } else {
-               map[x][y] = Game.Tile.wallTile;
-           }
+            if(v===1){
+                map[x][y] = Game.Tile.floorTile;
+            } else {
+                map[x][y] = Game.Tile.wallTile;
+            }
         });
         this._map = new Game.Map(map);
+
     },
     exit: function() { console.log("Exited play screen."); },
     render: function(display) {

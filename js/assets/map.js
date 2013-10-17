@@ -26,3 +26,5 @@ Game.Map.prototype.getTile = function(x, y){
          return this._tiles[x][y] || Game.Tile.nullTile
      }
 };
+
+
