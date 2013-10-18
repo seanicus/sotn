@@ -58,7 +58,8 @@ window.onload = function() {
         // Initialize the game
         Game.init();
         // Add the container to our HTML page
-        document.body.appendChild(Game.getDisplay().getContainer());
+        //document.body.appendChild(Game.getDisplay().getContainer());
+        document.getElementById("mainDisplay").appendChild(Game.getDisplay().getContainer());
         // Load the start screen
         Game.switchScreen(Game.Screen.startScreen);
     }
