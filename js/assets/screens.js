@@ -13,7 +13,7 @@ Game.Screen.startScreen = {
     exit: function() { console.log("Exited start screen."); },
     render: function(display) {
         // Render our prompt to the screen
-        display.drawText(1,1, "%c{yellow}Javascript Roguelike");
+        display.drawText(1,1, "%c{yellow}Source of the Nile");
         display.drawText(1,2, "Press [Enter] to start!");
     },
     handleInput: function(inputType, inputData) {
