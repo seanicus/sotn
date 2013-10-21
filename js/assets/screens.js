@@ -41,33 +41,31 @@ Game.Screen.playScreen = {
         var str = Game.Africa.map();
 
         var map = [];
-        for(var x = 0; x < 80; x++){
+        var str_y = 0;
+        for(var y = 0; y < 24; y++){
             map.push([]);
-            for(var y = 0; y < 24; y++){
-                map[x].push(Game.Tile.nullTile)
+            var str_x = 0;
+            for(var x = y%2; x < 80; x += 2){
+                //map[x].push(Game.Tile.nullTile)
+                if(str[str_y][str_x] == "."){
+                    map[y][x] = Game.Tile.floorTile;
+                } else {
+                    map[y][x] = Game.Tile.wallTile;
+                }
+                str_x++;
             }
+            str_y++
         }
-        var generator = new ROT.Map.Cellular(80, 24);
-        generator.randomize(0.5);
-        var totalIterations = 3;
-        for(var i = 0; i < totalIterations - 1; i++){
-            generator.create();
-        }
-        generator.create(function(x,y,v) {
-            if(v===1){
-                map[x][y] = Game.Tile.floorTile;
-            } else {
-                map[x][y] = Game.Tile.wallTile;
-            }
-        });
+
         this._map = new Game.Map(map);
 
     },
     exit: function() { console.log("Exited play screen."); },
     render: function(display) {
-        for(x = 0; x < this._map.getWidth(); x++){
-            for(var y = 0; y < this._map.getHeight(); y++){
-                var glyph = this._map.getTile(x, y).getGlyph();
+        for(var y = 0; y < this._map.getHeight(); y++){
+            for(var x = y%2; x < this._map.getWidth(); x += 2){
+                var glyph = this._map.getTile(y, x).getGlyph();
+                console.log(y + ", " + x + ": " + glyph.getChar());
                 display.draw(x, y, glyph.getChar(), glyph.getForeground(), glyph.getBackground());
             }
         }
