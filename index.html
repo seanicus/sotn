@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Javascript Roguelike</title>
+    <title>Source of the Nile</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <script src="js/libs/rot.min.js"></script>
@@ -16,6 +17,12 @@
 <script src="js/assets/map.js"></script>
 
 <body>
-    <div id="mainDisplay"></div>
+    <div class="uiWrapper">
+        <div class="inventoryDisplay"></div>
+        <div class="rotDisplay" id="mainDisplay"></div>
+        <div class="miniMapDisplay"></div>
+        <div class="hexDisplay"></div>
+        <div class="consoleDisplay"></div>
+    </div>
 </body>
 </html>

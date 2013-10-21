@@ -1,0 +1,55 @@
+.uiWrapper {
+    position: relative;
+    margin: auto;
+    width: 1200px;
+}
+
+.rotDisplay{
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    height: 360px;
+    width: 720px;
+    border-color: red;
+    background-color:black;
+}
+
+.inventoryDisplay{
+    position: absolute;
+    height: 550px;
+    width: 200px;
+    top: 0px;
+    left: 0px;
+    border-color: red;
+    background-color: gray;
+}
+
+.consoleDisplay {
+    position: absolute;
+    height: 190px;
+    width: 720px;
+    top: 360px;
+    left: 200px;
+    border-color: red;
+    background-color: blue;
+}
+
+.hexDisplay {
+    position: absolute;
+    height: 275px;
+    width: 200px;
+    top: 275px;
+    left: 920px;
+    border-color: red;
+    background-color: green;
+}
+
+.miniMapDisplay {
+    position: absolute;
+    height: 275px;
+    width: 200px;
+    top: 0px;
+    left: 920px;
+    border-color: red;
+    background-color: purple;
+}
