@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/maps/africa.js" afterPath="$PROJECT_DIR$/js/maps/africa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets/game.js" afterPath="$PROJECT_DIR$/js/assets/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets/map.js" afterPath="$PROJECT_DIR$/js/assets/map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets/screens.js" afterPath="$PROJECT_DIR$/js/assets/screens.js" />
-    </list>
+    <list default="true" id="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" name="Default" comment="" />
     <ignored path="sotn.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382371624930" ignored="false" />
@@ -101,7 +96,7 @@
       <file leaf-file-name="mapmanager.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/assets/mapmanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.36263737">
               <folding />
             </state>
           </provider>
@@ -521,7 +516,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/assets/mapmanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="22" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.36263737">
           <folding />
         </state>
       </provider>
