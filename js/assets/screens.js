@@ -28,24 +28,21 @@ Game.Screen.startScreen = {
 
 // Define our playing screen
 Game.Screen.playScreen = {
+    _map: null,
+    _centerX: 0,
+    _centerY: 0,
     enter: function() {
         console.log("Entered play screen.");
-
-//        //var rdr = Game.MapManager;
-//        var map_store = Game.MapManager.get('africa').then(function(){
-//
-//
-//
-//        }.bind(this));
 
         var str = Game.Africa.map();
 
         var map = [];
+        var mapHeight = 80;
         var str_y = 0;
         for(var y = 0; y < 24; y++){
             map.push([]);
             var str_x = 0;
-            for(var x = y%2; x < 80; x += 2){
+            for(var x = y%2; x < mapHeight; x += 2){
                 //map[x].push(Game.Tile.nullTile)
                 if(str[str_y][str_x] == "."){
                     map[y][x] = Game.Tile.floorTile;
@@ -62,13 +59,38 @@ Game.Screen.playScreen = {
     },
     exit: function() { console.log("Exited play screen."); },
     render: function(display) {
-        for(var y = 0; y < this._map.getHeight(); y++){
-            for(var x = y%2; x < this._map.getWidth(); x += 2){
+        var screenWidth = Game.getScreenWidth();
+        var screenHeight = Game.getScreenHeight();
+
+        var topLeftX = Math.max(0, this._centerX - (screenWidth / 2));
+        topLeftX = Math.min(topLeftX, this._map.getWidth() - screenWidth);
+
+        var topLeftY = Math.max(0, this._centerY - (screenHeight / 2));
+        topLeftY = Math.min(topLeftY, this._map.getHeight() - screenHeight);
+
+        for(var y = topLeftY; y < topLeftY + screenHeight; y++){
+            for(var x = y%2; x < topLeftX + screenWidth; x += 2){
                 var glyph = this._map.getTile(y, x).getGlyph();
-                console.log(y + ", " + x + ": " + glyph.getChar());
-                display.draw(x, y, glyph.getChar(), glyph.getForeground(), glyph.getBackground());
+                //console.log(y + ", " + x + ": " + glyph.getChar());
+                display.draw(x - topLeftX, y - topLeftY, glyph.getChar(), glyph.getForeground(), glyph.getBackground());
             }
         }
+
+        // Render the cursor
+        display.draw(
+            this._centerX - topLeftX,
+            this._centerY - topLeftY,
+            '@',
+            'white',
+            'black');
+
+//        for(var y = 0; y < this._map.getHeight(); y++){
+//            for(var x = y%2; x < this._map.getWidth(); x += 2){
+//                var glyph = this._map.getTile(y, x).getGlyph();
+//                console.log(y + ", " + x + ": " + glyph.getChar());
+//                display.draw(x, y, glyph.getChar(), glyph.getForeground(), glyph.getBackground());
+//            }
+//        }
     },
     handleInput: function(inputType, inputData) {
         if (inputType === 'keydown') {
@@ -79,7 +101,28 @@ Game.Screen.playScreen = {
             } else if (inputData.keyCode === ROT.VK_ESCAPE) {
                 Game.switchScreen(Game.Screen.loseScreen);
             }
+            //move
+            if(inputData.keyCode == ROT.VK_NUMPAD7){
+                this.move(-1, -1);
+            } else if (inputData.keyCode == ROT.VK_NUMPAD3){
+                if(this._centerY < (this._map.getHeight() - 1)){
+                    this.move(1, 1);
+                } else {
+                    this.move(0, 1);
+                }
+
+            }
         }
+    },
+    move: function(dX, dY) {
+        // Positive dX means movement right
+        // negative means movement left
+        // 0 means none
+        this._centerX = Math.max(0, Math.min(this._map.getWidth() - 1, this._centerX + dX));
+        // Positive dY means movement down
+        // negative means movement up
+        // 0 means none
+        this._centerY = Math.max(0, Math.min(this._map.getHeight() - 1, this._centerY + dY));
     }
 }
 

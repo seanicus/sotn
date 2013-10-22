@@ -7,8 +7,8 @@
  */
 Game.Glyph = function(chr, foreground, background) {
     this._char = chr || ' ';
-    this._foreground = foreground || 'white';
-    this._background = background || 'black';
+    this._foreground = foreground || 'black';
+    this._background = background || 'white';
 };
 
 Game.Glyph.prototype.getChar = function(){

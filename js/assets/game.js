@@ -8,11 +8,21 @@
 var Game =  {
     _display: null,
     _currentScreen: null,
-    _screenWidth: 80,
-    _screenHeight: 24,
+    _screenWidth: 50,
+    _screenHeight: 14,
     init: function() {
         // Any necessary initialization will go here.
-        this._display = new ROT.Display({width: this._screenWidth, height: this._screenHeight, layout: "hex"});
+        var options = {
+            fontSize: 24,
+            layout: "hex",
+            fontFamily: "droid sans mono",
+            border: 0.5,
+            spacing: 0.88,
+            width: this._screenWidth,
+            height: this._screenHeight
+        }
+        //this._display = new ROT.Display({width: this._screenWidth, height: this._screenHeight, fontSize: 23, layout: "hex"});
+        this._display = new ROT.Display(options);
         // Create a helper function for binding to an event
         // and making it send it to the screen
         var game = this; // So that we don't lose this
@@ -23,6 +33,8 @@ var Game =  {
                 if (game._currentScreen !== null) {
                     // Send the event type and data to the screen
                     game._currentScreen.handleInput(event, e);
+                    game._display.clear();
+                    game._currentScreen.render(game._display);
                 }
             });
         }
