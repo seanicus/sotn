@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/maps/africa.js" afterPath="$PROJECT_DIR$/js/maps/africa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets/game.js" afterPath="$PROJECT_DIR$/js/assets/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets/glyph.js" afterPath="$PROJECT_DIR$/js/assets/glyph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets/screens.js" afterPath="$PROJECT_DIR$/js/assets/screens.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sotn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14,7 +10,7 @@
     <file path="/index.html" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382237306511" ignored="false" />
     <file path="/game.js" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382481562215" ignored="false" />
     <file path="/style.css" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382238745318" ignored="false" />
-    <file path="/screens.js" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382484217965" ignored="false" />
+    <file path="/screens.js" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382488296197" ignored="false" />
     <file path="/africa.js" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382388561266" ignored="false" />
     <file path="/map.js" changelist="8e8565ff-70a8-4d0c-9fe7-dbe22c21f63e" time="1382390630675" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -111,7 +107,7 @@
       <file leaf-file-name="screens.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/assets/screens.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="63" selection-start="3828" selection-end="3828" vertical-scroll-proportion="0.70394737">
+            <state line="123" column="59" selection-start="4208" selection-end="4208" vertical-scroll-proportion="0.64144737">
               <folding />
             </state>
           </provider>
@@ -518,7 +514,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/assets/screens.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="63" selection-start="3828" selection-end="3828" vertical-scroll-proportion="0.70394737">
+        <state line="123" column="59" selection-start="4208" selection-end="4208" vertical-scroll-proportion="0.64144737">
           <folding />
         </state>
       </provider>

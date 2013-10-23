@@ -84,13 +84,6 @@ Game.Screen.playScreen = {
             'white',
             'black');
 
-//        for(var y = 0; y < this._map.getHeight(); y++){
-//            for(var x = y%2; x < this._map.getWidth(); x += 2){
-//                var glyph = this._map.getTile(y, x).getGlyph();
-//                console.log(y + ", " + x + ": " + glyph.getChar());
-//                display.draw(x, y, glyph.getChar(), glyph.getForeground(), glyph.getBackground());
-//            }
-//        }
     },
     handleInput: function(inputType, inputData) {
         if (inputType === 'keydown') {
@@ -103,7 +96,12 @@ Game.Screen.playScreen = {
             }
             //move
             if(inputData.keyCode == ROT.VK_NUMPAD7){
-                this.move(-1, -1);
+                if(this._centerY != 0){
+                    this.move(-1, -1);
+                } else {
+                    this.move(0, -1);
+                }
+
             } else if (inputData.keyCode == ROT.VK_NUMPAD3){
                 if(this._centerY < (this._map.getHeight() - 1)){
                     this.move(1, 1);
@@ -111,7 +109,32 @@ Game.Screen.playScreen = {
                     this.move(0, 1);
                 }
 
+            } else if (inputData.keyCode == ROT.VK_NUMPAD9){
+                if(this._centerY != 0){
+                    this.move(1, -1);
+                } else {
+                    this.move(0, -1);
+                }
+            } else if(inputData.keyCode == ROT.VK_NUMPAD1) {
+                if(this._centerY < (this._map.getHeight() - 1)){
+                    this.move(-1, 1);
+                } else {
+                    this.move(0, 1);
+                }
+            } else if(inputData.keyCode == ROT.VK_NUMPAD4){
+                //TODO:  YUCK.  Clean this up
+                if(this._centerY == 0){
+                    this.move(-2, 0);
+                } else if(this._centerX == 1 && this._centerY%2 == 1){
+                    this.move(0,0);
+                } else {
+                    this.move(-2, 0);
+                }
+
+            } else if(inputData.keyCode == ROT.VK_NUMPAD6) {
+                this.move(2, 0);
             }
+
         }
     },
     move: function(dX, dY) {
