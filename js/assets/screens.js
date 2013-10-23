@@ -95,6 +95,7 @@ Game.Screen.playScreen = {
                 Game.switchScreen(Game.Screen.loseScreen);
             }
             //move
+            //TODO:  YUCK.  Clean this up... all these key handlers suck
             if(inputData.keyCode == ROT.VK_NUMPAD7){
                 if(this._centerY != 0){
                     this.move(-1, -1);
@@ -116,13 +117,15 @@ Game.Screen.playScreen = {
                     this.move(0, -1);
                 }
             } else if(inputData.keyCode == ROT.VK_NUMPAD1) {
-                if(this._centerY < (this._map.getHeight() - 1)){
+                if ((this._centerY == 0 && this._centerX == 0) || (this._centerX == 0 && this._centerY%2 == 0)){
+                    this.move(0, 0);
+                } else if(this._centerY < (this._map.getHeight() - 1)){
                     this.move(-1, 1);
                 } else {
                     this.move(0, 1);
                 }
             } else if(inputData.keyCode == ROT.VK_NUMPAD4){
-                //TODO:  YUCK.  Clean this up
+
                 if(this._centerY == 0){
                     this.move(-2, 0);
                 } else if(this._centerX == 1 && this._centerY%2 == 1){
