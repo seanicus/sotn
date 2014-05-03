@@ -7,8 +7,8 @@
  */
 Game.Map = function(tiles){
     this._tiles = tiles;
-    this._width = tiles.length;
-    this._height = tiles[0].length;
+    this._width = tiles[0].length;
+    this._height = tiles.length;
 };
 
 Game.Map.prototype.getWidth = function(){
@@ -19,11 +19,11 @@ Game.Map.prototype.getHeight = function(){
     return this._height;
 };
 
-Game.Map.prototype.getTile = function(x, y){
+Game.Map.prototype.getTile = function(y, x){
      if(x < 0 || x >= this._width || y < 0 || y >= this._height){
          return Game.Tile.nullTile;
      } else {
-         return this._tiles[x][y] || Game.Tile.nullTile
+         return this._tiles[y][x] || Game.Tile.nullTile
      }
 };
 
