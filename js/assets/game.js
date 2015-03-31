@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var Game =  {
-    //init some stuff
+    //init some stuff with another comment
     _mainDisplay: null,
     _displayOne: null,
     _currentScreen: null,
