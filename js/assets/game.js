@@ -13,7 +13,7 @@ var Game =  {
     _screenWidth: 50,
     _screenHeight: 14,
     init: function() {
-        // Any necessary initialization will go here.
+        // Any necessary initialization will go here. this is a different comment
         var mainDisplayOptions = {
             fontSize: 24,
             layout: "hex",
