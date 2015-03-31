@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var Game =  {
+    //init some stuff
     _mainDisplay: null,
     _displayOne: null,
     _currentScreen: null,
