@@ -6,13 +6,14 @@
  * To change this template use File | Settings | File Templates.
  */
 var Game =  {
-    _display: null,
+    _mainDisplay: null,
+    _displayOne: null,
     _currentScreen: null,
     _screenWidth: 50,
     _screenHeight: 14,
     init: function() {
         // Any necessary initialization will go here.
-        var options = {
+        var mainDisplayOptions = {
             fontSize: 24,
             layout: "hex",
             fontFamily: "droid sans mono",
@@ -20,9 +21,20 @@ var Game =  {
             spacing: 0.88,
             width: this._screenWidth,
             height: this._screenHeight
-        }
-        //this._display = new ROT.Display({width: this._screenWidth, height: this._screenHeight, fontSize: 23, layout: "hex"});
-        this._display = new ROT.Display(options);
+        };
+        var displayOneOptions = {
+            fontSize: 24,
+            layout: "rect",
+            fontFamily: "droid sans mono",
+            border: 0.5,
+            spacing: 0.88,
+            width: 10,
+            height: 25,
+            bg: "green"
+        };
+        //this._mainDisplay = new ROT.Display({width: this._screenWidth, height: this._screenHeight, fontSize: 23, layout: "hex"});
+        this._mainDisplay = new ROT.Display(mainDisplayOptions);
+        this._displayOne = new ROT.Display(displayOneOptions);
         // Create a helper function for binding to an event
         // and making it send it to the screen
         var game = this; // So that we don't lose this
@@ -33,8 +45,8 @@ var Game =  {
                 if (game._currentScreen !== null) {
                     // Send the event type and data to the screen
                     game._currentScreen.handleInput(event, e);
-                    game._display.clear();
-                    game._currentScreen.render(game._display);
+                    game._mainDisplay.clear();
+                    game._currentScreen.render(game._mainDisplay);
                 }
             });
         }
@@ -45,7 +57,10 @@ var Game =  {
 
     },
     getDisplay: function() {
-        return this._display;
+        return this._mainDisplay;
+    },
+    getInventoryDisplay: function() {
+        return this._displayOne;
     },
     getScreenWidth: function() {
         return this._screenWidth;
@@ -65,7 +80,7 @@ var Game =  {
         this._currentScreen = screen;
         if (!this._currentScreen !== null) {
             this._currentScreen.enter();
-            this._currentScreen.render(this._display);
+            this._currentScreen.render(this._mainDisplay);
         }
     }
 }
@@ -80,6 +95,7 @@ window.onload = function() {
         // Add the container to our HTML page
         //document.body.appendChild(Game.getDisplay().getContainer());
         document.getElementById("mainDisplay").appendChild(Game.getDisplay().getContainer());
+        document.getElementById("inventoryDisplay").appendChild(Game.getInventoryDisplay().getContainer());
         // Load the start screen
         Game.switchScreen(Game.Screen.startScreen);
     }
